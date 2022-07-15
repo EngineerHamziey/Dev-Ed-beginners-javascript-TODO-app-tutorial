@@ -1,0 +1,151 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  /* 120deg makes it go from lower left to upper right */
+  background-image: linear-gradient(120deg, #f6d365, #fda085);
+  color: white;
+  font-family: "poppins", sans-serif;
+  min-height: 100vh;
+}
+
+header {
+  font-size: 1.5rem;
+}
+
+header,
+form {
+  min-height: 20vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+form input,
+form button {
+  padding: 0.5rem;
+  font-size: 2rem;
+  border: none;
+  background-color: white;
+}
+
+form button {
+  color: #d88771;
+  background: white;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+form button:hover {
+  background: #d88771;
+  color: white;
+}
+/* styling the elements we created with our js */
+.todo-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.todo-list {
+  min-width: 30%;
+  list-style: none;
+}
+
+.todo {
+  margin: 0.5rem;
+  background: white;
+  color: black;
+  font-size: 1.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: all 0.5s ease;
+}
+
+.todo li {
+  flex: 1;
+}
+
+.trash-btn,
+.complete-btn {
+  background: #ff6f47;
+  color: white;
+  border: none;
+  padding: 1rem;
+  cursor: pointer;
+  font-size: 1rem;
+}
+
+.complete-btn {
+  background: rgb(21, 150, 21);
+}
+
+.todo-item {
+  padding: 0 0.5rem;
+}
+
+.fa-trash,
+.fa-check {
+  /* to make it unclickable, or click-transparent/clickthrough */
+  pointer-events: none;
+  /* so that it wont affect our JS */
+}
+
+.completed {
+  text-decoration: line-through;
+  opacity: 0.5;
+}
+
+.fall {
+  /* here comes the animation, this changes
+  will occur slows since we added transition to
+  the .todo and that's how animaton works */
+  transform: translateY(8rem) rotateZ(20deg);
+  opacity: 0;
+  /* then we use javascript to remove the element completely */
+}
+
+select {
+  /* appearance of none is to remove the default arrow down shown */
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  outline: none;
+  border: none;
+}
+
+.select {
+  margin: 1rem;
+  position: relative;
+  overflow: hidden;
+}
+
+select {
+  color: #ff6f47;
+  width: 10rem;
+  cursor: pointer;
+  padding: 1rem;
+}
+
+/* to add a nicer looking arrow than the previous one we removed */
+.select::after {
+  content: "\25BC";/*this is the character code for the arrow*/
+  position: absolute;
+  background: #ff6f47;
+  top: 0;/*top of its container(relative)*/
+  right: 0;/*right of its container(relative)*/
+  padding: 1rem;
+  pointer-events: none;
+  /* transition to make the hover animation slow and cool */
+  transition: all 0.3s ease;
+}
+
+/*adding hover to the arrow*/
+.select:hover::after {
+  background: white;
+  color: #ff6f47;
+}
